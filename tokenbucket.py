@@ -10,6 +10,6 @@ def tokenbucket():
             print("f'{x+1}th packet is sent")
         else:
             print('packet is not sent')
-    print(f{x}, 'packets are not sent')
+    print(f{x} 'packets are not sent')
     print('f{m}packets are sent')
 tokenbucket()
