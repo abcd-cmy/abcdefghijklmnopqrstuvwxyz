@@ -1,0 +1,29 @@
+import os
+def KMPSearch(pat, txt):
+    m = len(pat)
+    n = len(txt)
+    pi = [0] * m  
+    j = 0  
+    computePiArray(pat, m, pi)
+    i = 0  
+    flag = 0
+    count = 0
+    while i < n:
+        if pat[j] == txt[i]:
+            i += 1
+            j += 1
+        if j == m:
+            # print("Plagiarism is found")
+            flag = 1
+            count += 1
+            j = pi[j - 1]  
+        elif i < n and pat[j] != txt[i]:
+            if j != 0:  
+                j = pi[j - 1]  
+            else:
+                i += 1  
+    if (flag == 1):
+        print("Match found")
+        print("No. of times Match found : ", count)
+    else:
+        print("Match is not found")
