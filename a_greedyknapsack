@@ -1,0 +1,19 @@
+class Solution:
+   def solve(self, weight, val, capacity):
+      res = 0
+      for pair in sorted(zip(weight, val), key=lambda x: - x[1]/x[0]):
+         if not bool(capacity):
+            break
+         if pair[0] > capacity:
+            res += int(pair[1] / (pair[0] / capacity))
+            capacity = 0
+         elif pair[0] <= capacity:
+            res += pair[1]
+            capacity -= pair[0]
+      return (print("Maximum value =", res))
+
+ob = Solution()
+weight = [21, 34, 9]
+val = [130, 110, 20]
+capacity = 20
+print(ob.solve(weight, val, capacity))
